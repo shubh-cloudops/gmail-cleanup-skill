@@ -1,8 +1,10 @@
-# gmail-cleanup
+# Gmail Cleanup: Claude Skill to Delete Old Promotions, Spam and Newsletters Safely
 
-A [Claude](https://claude.com/claude-code) skill that finds unwanted Gmail (spam, repeated promotions, newsletters, old junk), shows you a plan, trashes only what you approve, and labels the rest by year.
+![MIT license](https://img.shields.io/badge/license-MIT-blue.svg) ![Claude Code skill](https://img.shields.io/badge/Claude%20Code-skill-orange.svg)
 
-It is built to be **cautious first**: it will not delete anything you didn't clearly approve.
+**Gmail Cleanup is a free Claude skill that cleans up an old Gmail inbox.** It finds spam, repeat advertisers and newsletters, shows you a dry-run plan, and trashes only what you approve. Everything else is labelled by year, so you free up mailbox space without risking personal, financial or ID-related mail. It works in [Claude Code](https://claude.com/claude-code) and other Claude clients with a Gmail connector.
+
+Also on the Agensi marketplace: [Gmail Cleanup on Agensi](https://agensi.io/skills/gmail-cleanup).
 
 ## What it does
 
@@ -62,6 +64,23 @@ Review the dry-run report, then approve the groups you want gone.
 ## Your data stays local
 
 `learned.md` (your remembered senders) and `gmail-cleanup-log.md` (your undo log) are created on your machine and are git-ignored. Do not commit them if you fork this repo.
+
+## FAQ
+
+**How do I bulk delete old promotional emails in Gmail with Claude?**
+Install this skill and ask Claude "Clean up my Gmail." It scans mail older than 2 years, groups repeat advertisers, and trashes only the sender groups you approve.
+
+**Will it delete important emails?**
+No. It is default-deny: it never touches the last 2 years, mail you sent, mail written to you by a person, starred or Important mail, banking and loan mail, ID and tax records, or anything with an attachment. When it is unsure, it keeps the mail.
+
+**Can I undo a cleanup?**
+Yes. It only moves mail to Trash or Spam, which Gmail keeps for about 30 days, and it writes every trashed thread to `gmail-cleanup-log.md` so you can restore it.
+
+**Does it unsubscribe me from newsletters?**
+No. It never opens unsubscribe links, because they can be phishing. It lists the top senders so you can unsubscribe yourself.
+
+**Does it send my email anywhere?**
+No. It reads threads only to check they are safe to remove, and it does not copy, quote or send their contents.
 
 ## Disclaimer
 
